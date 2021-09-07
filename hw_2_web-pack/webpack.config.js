@@ -5,13 +5,6 @@ module.exports = {
     entry: "./logic/main.js",
     output: {
         path: resolve(__dirname, 'build'),
-        filename: "main.[contenthash].js",
-    },
-    module: {
-        rules: [
-            {
-                loader: 'file-loader'
-            }
-        ]
+        filename: "main.js",
     }
 }
