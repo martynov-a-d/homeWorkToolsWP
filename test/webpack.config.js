@@ -10,7 +10,7 @@ module.exports = {
         filename: 'main.[contenthash].js'
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: resolve(__dirname, 'index.html') }),
+        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
@@ -55,5 +55,4 @@ module.exports = {
             }
         ]
     }
-
 };
