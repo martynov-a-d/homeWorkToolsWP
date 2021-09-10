@@ -10,7 +10,7 @@ module.exports = {
         filename: 'main.[contenthash].js'
     },
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({ template: resolve(__dirname, 'index.html') }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
@@ -23,24 +23,7 @@ module.exports = {
             {
                 test: /\\.(png|jpe?g|gif|mp3)$/i,
                 use: 'file-loader'
-            }
-        ]
-    },
-    // module: {
-    //     rules: [
-    //         { test: /\\.css$/, use: ['style-loader', 'css-loader'] },
-    //         {
-    //             test: /\\.s[ac]ss$/i,
-    //             use: [
-    //                 'style-loader',
-    //                 'css-loader',
-    //                 'sass-loader'
-    //             ]
-    //         }
-    //     ]
-    // },
-    module: {
-        rules: [
+            },
             {
                 test: /\\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
@@ -54,5 +37,5 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
 };
