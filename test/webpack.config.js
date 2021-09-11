@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     entry: './js/main.js',
     output: {
-        path: resolve(__dirname, 'build'),
+        path: resolve(__dirname, 'dist'),
         filename: 'main.[contenthash].js'
     },
     plugins: [
@@ -24,18 +24,29 @@ module.exports = {
                 test: /\\.(png|jpe?g|gif|mp3)$/i,
                 use: 'file-loader'
             },
+            // {
+            //     test: /\\.css$/,
+            //     use: [MiniCssExtractPlugin.loader, 'css-loader']
+            // },
+            // {
+            //     test: /\\.s[ac]ss$/i,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,
+            //         'css-loader',
+            //         'sass-loader'
+            //     ]
+            // }
             {
-                test: /\\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
-            },
-            {
-                test: /\\.s[ac]ss$/i,
+                test: /\.s[ac]ss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
-            }
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
+                ],
+            },
         ]
     },
 };
