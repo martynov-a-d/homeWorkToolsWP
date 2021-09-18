@@ -7,44 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./logic/main.js" type="module"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
         integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <style>
+        .switch {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btnChapter {
+            border-radius: 10px;
+            display: block;
+            background-color: bisque;
+            width: 150px;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
     <div id="switch">
-        <p id="first" data-name="datecalc">Калькулятор дат</p>
-        <p id="second" data-name="time">Таймер</p>
+        <p id="first" class="btnChapter" data-name="datecalc">Калькулятор дат</p>
+        <p id="second" class="btnChapter" data-name="time">Таймер</p>
     </div>
-    <div id="test">
-
+    <div id="mountArea">
     </div>
-
-    <form id="datecalc">
-        <h3>Калькулятор дат</h3>
-        <label>
-            <strong>Первая дата:</strong>
-            <input type="date" name="firstDate" />
-        </label>
-        <label>
-            <strong>Вторая дата:</strong>
-            <input type="date" name="secondDate" />
-        </label>
-        <button type="submit">Расчитать промежуток</button>
-        <p id="datecalc__result"></p>
-    </form>
-
-    <form id="time">
-        <h3>Таймер</h3>
-        <label>
-            <strong>Задайте время</strong>
-            <input id="min" type="text" placeholder="Минуты">
-            <input id="sec" type="text" placeholder="Секунды">
-        </label>
-        <button id="btnStart" type="submit">Запустить</button>
-    </form>
 </body>
 
 </html>
