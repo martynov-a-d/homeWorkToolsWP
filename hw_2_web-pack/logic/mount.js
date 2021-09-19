@@ -1,42 +1,44 @@
-/** Модуль монтирования болока страницы */
-export function preMount(elem) {
-    let mountElem = elem.target.getAttribute("data-name");
+/**
+ * Блок import
+ */
+import { handleCalcDates } from "./date.js";
+import { handleTime } from "./timer.js";
+export { mount, mountBlock };
 
-    let datecalc = `<form id="datecalc">
-    <h3>Калькулятор дат</h3>
-    <label>
-        <strong>Первая дата:</strong>
-        <input type="date" name="firstDate" />
-    </label>
-    <label>
-        <strong>Вторая дата:</strong>
-        <input type="date" name="secondDate" />
-    </label>
-    <button type="submit">Расчитать промежуток</button>
-    <p id="datecalc__result"></p>
-    </form>`;
-
-    let timer = `    <form id="time">
-    <h3>Таймер</h3>
-    <label>
-        <strong>Задайте время</strong>
-        <input id="min" type="text" placeholder="Минуты">
-        <input id="sec" type="text" placeholder="Секунды">
-    </label>
-    <button id="btnStart" type="submit">Запустить</button>
+let mountBlock = `<form id="datecalc" class="hiden">
+<h3>Калькулятор дат</h3>
+<label>
+    <strong>Первая дата:</strong>
+    <input type="date" name="firstDate" />
+</label>
+<label>
+    <strong>Вторая дата:</strong>
+    <input type="date" name="secondDate" />
+</label>
+<button type="submit">Расчитать промежуток</button>
+<p id="datecalc__result"></p>
+</form>
+<form id="timer" class="hiden">
+<h3>Таймер</h3>
+<label>
+    <strong>Задайте время</strong>
+    <input id="min" type="text" placeholder="Минуты">
+    <input id="sec" type="text" placeholder="Секунды">
+</label>
+<button id="btnStart" type="submit">Запустить</button>
 </form>`;
 
-
-    switch (mountElem) {
-        case "datecalc":
-            document.getElementById("test").insertAdjacentHTML("afterbegin", datecalc);
-            break;
-
-        case "time":
-            document.getElementById("test").insertAdjacentHTML("afterbegin", timer);
-            break;
-
-        default:
-            break;
-    }
+/**
+ * Модуль монтирования болока страницы
+ * @param {*} elem 
+ */
+function mount(elem) {
+    let mountArea = document.getElementById("mountArea");
+    mountArea.innerHTML = "";
+    mountArea.insertAdjacentHTML("afterbegin", elem);
+    initListener();
+};
+function initListener() {
+    document.getElementById("datecalc").addEventListener("submit", (event) => { handleCalcDates(event) });
+    document.getElementById("timer").addEventListener("submit", (event) => { handleTime(event) });
 };

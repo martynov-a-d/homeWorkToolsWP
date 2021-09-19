@@ -3,51 +3,26 @@
  * Модуль таймера
  * @param {*} event 
  */
-import { minTimer, secTimer } from "./main.js";
-
 export function handleTime(event) {
     event.preventDefault();
-    // event.target.setAttribute("style", "display: none");
-    setInterval(
+    let startInt = setInterval(
         startTimer,
         1000
     );
+    console.log(event.submitter.textContent);
+    event.submitter.textContent = "Стоп";
+    function startTimer() {
+        let minTimer = document.getElementById("min");
+        let secTimer = document.getElementById("sec");
+        if (minTimer.value <= 0 && secTimer.value <= 0) {
+            clearInterval(startInt);
+        } else if (secTimer.value <= 0) {
+            minTimer.value--;
+            secTimer.value = 59;
+        } else {
+            secTimer.value--;
+        }
+    };
 };
 
-function startTimer() {
-    if (minTimer.value <= 0 && secTimer.value <= 0) {
-        clearInterval(handleTime);
-    } else if (secTimer.value <= 0) {
-        minTimer.value--;
-        secTimer.value = 59;
-    } else {
-        secTimer.value--;
-    }
-};
 
-// class Timer {
-//     constructor(minTimer, secTimer) {
-//         this.minTimer = minTimer;
-//         this.secTimer = secTimer;
-//     }
-
-//     handleTime(event) {
-//         event.preventDefault();
-//         // event.target.setAttribute("style", "display: none");
-//         setInterval(
-//             startTimer,
-//             1000
-//         );
-//     };
-
-//     startTimer() {
-//         if (minTimer.value <= 0 && secTimer.value <= 0) {
-//             clearInterval(handleTime);
-//         } else if (secTimer.value <= 0) {
-//             minTimer.value--;
-//             secTimer.value = 59;
-//         } else {
-//             secTimer.value--;
-//         }
-//     };
-// }

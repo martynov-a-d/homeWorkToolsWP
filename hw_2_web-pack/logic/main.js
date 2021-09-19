@@ -1,28 +1,18 @@
 'use strict'
 
 /** Блок import/export */
-import { preMount } from "./mount.js";
-import { handleTime } from "./timer.js";
-import { handleCalcDates } from "./date.js";
-export { dateCalcResult, minTimer, secTimer };
+import { switchHiden } from "./switch.js"
+import { mount, mountBlock } from "./mount.js";
 
 /** Назначение переменных и связь с index.html */
-const dateCalcForm = document.getElementById("datecalc");
-const dateCalcResult = document.getElementById("datecalc__result");
-const timeForm = document.getElementById("time");
 const switchArea = document.getElementById("switch");
-let minTimer = document.getElementById("min");
-let secTimer = document.getElementById("sec");
+
+/**
+ * Монтирует блок с скелетом
+ */
+mount(mountBlock);
 
 /** Блок назначения "слушатель события" */
-dateCalcForm.addEventListener("submit", handleCalcDates);
-timeForm.addEventListener("submit", handleTime);
 switchArea.addEventListener("click", (event) => {
-    preMount(event);
+    switchHiden(event);
 });
-
-var sound = new Howl({
-    src: ['sound.mp3']
-});
-
-sound.play();

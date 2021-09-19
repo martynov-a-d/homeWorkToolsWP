@@ -5,9 +5,9 @@
  */
 import { diffDates, diffToHtml } from "./datecalc.js";
 import { formatError } from "./utils.js";
-import { dateCalcResult } from "./main.js";
 
 export function handleCalcDates(event) {
+    const dateCalcResult = document.getElementById("datecalc__result");
     dateCalcResult.innerHTML = "";
     event.preventDefault();
 
