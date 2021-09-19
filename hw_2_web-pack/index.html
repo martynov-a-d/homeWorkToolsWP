@@ -6,31 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="./logic/main.js" type="module"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
         integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <style>
-        .switch {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .btnChapter {
-            border-radius: 10px;
-            display: block;
-            background-color: bisque;
-            width: 150px;
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <body>
-
     <div id="switch">
-        <p id="first" class="btnChapter" data-name="datecalc">Калькулятор дат</p>
-        <p id="second" class="btnChapter" data-name="time">Таймер</p>
+        <p id="first" data-name="datecalc">Калькулятор дат</p>
+        <p id="second" data-name="timer">Таймер</p>
     </div>
     <div id="mountArea">
     </div>
