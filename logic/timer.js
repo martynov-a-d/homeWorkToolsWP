@@ -14,16 +14,25 @@ export class Timer {
     </form>`;
     }
     write() {
+        document.getElementById("mountArea").innerHTML = "";
         document.getElementById('mountArea').insertAdjacentHTML("beforeend", this.block);
         newTimer.listen();
     }
     handleTime(event) {
         event.preventDefault();
-        setInterval(
-            newTimer.startTimer,
-            1000
-        );
+        if (event.submitter.textContent == "Стоп") {
+            clearInterval(newTimer.handleTime);
+        } else {
+            event.submitter.textContent = "Стоп";
+            setInterval(
+                newTimer.startTimer,
+                1000
+            );
+        }
     };
+    /**
+     * Добавляет слушатель события на кнопку
+     */
     listen() {
         let btnStart = document.getElementById('time');
         btnStart.addEventListener('submit', (event) => { newTimer.handleTime(event) });
@@ -39,6 +48,7 @@ export class Timer {
         } else {
             secTimer.value--;
         }
+        console.log("WTF!!!");
     };
 }
 const newTimer = new Timer();

@@ -23,6 +23,7 @@ export class DateCalc {
         </form>`
     };
     write() {
+        document.getElementById("mountArea").innerHTML = "";
         document.getElementById("mountArea").insertAdjacentHTML("afterbegin", this.block);
         document.getElementById("datecalc").addEventListener("submit", this.handleCalcDates);
     };
